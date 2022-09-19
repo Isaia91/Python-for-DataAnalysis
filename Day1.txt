@@ -1,0 +1,30 @@
+import random
+taille_classe=int(input("Quelle est la taille de la classe?"))
+nb_groupe=int(input("combien de groupes?"))
+##ppl= ["yohann","vivian","gregory","Isaia","angelina","jonathan","brandon","corentin","leon","colin","noah","anselm","mavrick","elias"]
+##random.shuffle(ppl) ##melanger la liste
+##print(ppl)
+list1=[]
+
+## demander le nom de chaque membre de la classe
+for i in range(taille_classe):
+    name=input("le nom du membre ")
+    list1.append(name)
+print(list1)
+taygrp=taille_classe//nb_groupe ##La taille des groupes
+print("il va y avoir: ",nb_groupe," groupes de ",taygrp,"personnes")
+
+def make_random_groups(students, number_of_groups):   
+    #Shuffle list of students
+    random.shuffle(students)  
+    #Create groups
+    all_groups = []
+    for i in range(number_of_groups):
+        group = students[i::number_of_groups]
+        all_groups.append(group) 
+    #Format and display groups
+    for i, group in enumerate(all_groups):
+        print(f"Groupe {i+1}: {' / '.join(group)}\n")
+
+make_random_groups(list1,nb_groupe)
+
